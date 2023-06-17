@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './pages/Home';
 import Contato from './pages/Contato';
 import Company from './pages/Company';
@@ -9,7 +9,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 
-function App() {
+export default function App() {
   return (
     
    <Router>
@@ -27,4 +27,3 @@ function App() {
   );
 }
 
-export default App;

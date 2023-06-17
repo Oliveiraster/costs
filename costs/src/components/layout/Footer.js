@@ -1,4 +1,4 @@
-import{FaInstagram, FaFacebook, FaLinkedin, FaGithub} from 'react-icons/fa'
+import{FaInstagram, FaLinkedin, FaGithub} from 'react-icons/fa'
 import styles from './Footer.module.css'
 
 
