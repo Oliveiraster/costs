@@ -1,5 +1,5 @@
 {
-    "Porjects": [],
+    "porjects": [],
     "categories":[{
         "id": 1,
         "name": "Infra"
@@ -17,4 +17,4 @@
         "name": "Planejamento"
     }
 ]
-}
+} 
