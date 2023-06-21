@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Contato from './pages/Contato';
 import Company from './pages/Company';
 import NewProject from "./pages/NewProject";
+import Projects from './pages/Porjects'
 
 import Container from "./components/layout/Container";
 import Navbar from "./components/layout/Navbar";
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<Home />}/>
         <Route path="/contato" element={<Contato />}/>
+        <Route path="/projects" element={<Projects />} />
         <Route path="/company" element={<Company />}/>
         <Route path="/Newproject" element={<NewProject />}/>
       </Routes>
