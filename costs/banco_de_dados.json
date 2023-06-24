@@ -43,6 +43,28 @@
       "cost": 0,
       "services": [],
       "id": 6
+    },
+    {
+      "name": "Novo Projeto 007",
+      "budget": "10000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 7
+    },
+    {
+      "name": "gege abusada",
+      "budget": "10",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 8
     }
   ],
   "categories": [
