@@ -5,6 +5,12 @@ import { Link } from 'react-router-dom'
 
 
 export default function CardProject({id, name, budget, category, handleRemove}){
+
+    const remove = (e) => {
+    e.preventDefault()
+    handleRemove(id)
+    }
+
     return(
         <div className={style.cardproject_container}>
             <h4>{name}</h4>
@@ -18,7 +24,7 @@ export default function CardProject({id, name, budget, category, handleRemove}){
                 <Link to="/">
                     <BsPencil/>Editar
                 </Link>
-                <button>
+                <button onClick={remove} >
                     <BsFillTrashFill /> Excluir
                 </button>
             </div>
@@ -28,5 +34,3 @@ export default function CardProject({id, name, budget, category, handleRemove}){
         
     )
 }
-
-
