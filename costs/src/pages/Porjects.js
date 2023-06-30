@@ -11,7 +11,7 @@ import CardProject from '../components/Project/CardProject'
 
 
 export default function Projects() {
-    const [Projects, setProjects] = useState([ ])
+    const [Projects, setProjects] = useState([])
     const [removeLoading, setRemoveLoading] = useState(true)
     const [projectMessage, setProjectMessage] = useState('')
 

@@ -1,11 +1,13 @@
+import {parse, v4 as uuidv4} from 'uuid'
+
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
 import Loading from '../components/layout/Loading'
 import Container from '../components/layout/Container'
 import ProjectForm from '../components/Project/ProjectForm'
 import Message from '../components/layout/Message'
 import ServiceForm from '../components/service/ServiceForm'
-
-import { Form, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 import style from './Projected.module.css'
 
@@ -60,6 +62,23 @@ export default function Projected(){
         })
     }
 
+    function createService(){
+        const lastService = project.services[project.services.length - 1]
+
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+        if (newCost > parseFloat(project.budget)) {
+            setMessage('Orçamento ultrapassado, verifique o valor do serviço!')
+            setType('error')
+            project.services.pop()
+            return false
+        }
+
+    }
+
     function toggleProjectForm(){
         setShowProjectForm(!showProjectForm) 
     }
@@ -101,7 +120,11 @@ export default function Projected(){
                                 <button className={style.btn} onClick={toggleServiceForm}>{!showServiceForm ? 'Adicionar serviço' : 'Fechar'} </button>
                         
                             <div className={style.project_info} >
-                                {showServiceForm && (<ServiceForm /> )}
+                                {showServiceForm && (<ServiceForm handleSubmit={createService} 
+                                btnText="Adicionar Serviço"
+                                projectData={project}
+                                /> )}
+
                             </div>
                         </div>
                         <h2>Serviços</h2>
