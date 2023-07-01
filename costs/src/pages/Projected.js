@@ -8,7 +8,7 @@ import Container from '../components/layout/Container'
 import ProjectForm from '../components/Project/ProjectForm'
 import Message from '../components/layout/Message'
 import ServiceForm from '../components/service/ServiceForm'
-
+import ServiceCard from '../components/service/ServiceCard'
 import style from './Projected.module.css'
 
 export default function Projected(){
@@ -16,7 +16,8 @@ export default function Projected(){
     const {id} = useParams()
 
     const [project, setProject] = useState([])
-    const [showProjectForm, setShowProjectForm] = useState(false)
+    const [showProjectForm, setShowProjectForm] = useState([])
+    const [services, setServices] = useState(false)
     const [showServiceForm, setShowServiceForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
@@ -33,6 +34,7 @@ export default function Projected(){
             .then(resp => resp.json())
             .then((data) =>{
                 setProject(data)
+                setServices(data.services)
             })
         },300)
     },[id])
@@ -56,7 +58,7 @@ export default function Projected(){
         .then((data) => {
 
             setProject(data)
-            setShowProjectForm(false)
+            setShowProjectForm(true)
             setMessage('Projeto atualizado')
             setType('success')    
         })
@@ -72,11 +74,26 @@ export default function Projected(){
 
         if (newCost > parseFloat(project.budget)) {
             setMessage('Orçamento ultrapassado, verifique o valor do serviço!')
-            setType('error')
+            setType('delete')
             project.services.pop()
             return false
         }
-
+        // adicionar service cost no projeto total
+        project.cost = newCost
+        // atualizando projeto
+        fetch(`http://localhost:5000/projects/${project.id}`,{
+            method:'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then(resp => resp.json())
+        .then((data) => {
+            //exibir os serviçoes
+            console.log(data)
+              
+        })
     }
 
     function toggleProjectForm(){
@@ -84,6 +101,10 @@ export default function Projected(){
     }
     function toggleServiceForm(){
         setShowServiceForm(!showServiceForm) 
+    }
+
+    function removeService(){
+
     }
 
     return(
@@ -94,8 +115,8 @@ export default function Projected(){
                         {message && <Message type={type} msg={message}  /> }
                         <div className={style.details_container} >
                             <h1>Projeto: <span>{project.name}</span></h1>
-                            <button className={style.btn} onClick={toggleProjectForm}>{!showProjectForm ? 'Editar projeto' : 'Fechar'} </button>
-                            {!showProjectForm ? (
+                            <button className={style.btn} onClick={toggleProjectForm}>{showProjectForm ? 'Editar projeto' : 'Fechar'} </button>
+                            {showProjectForm ? (
                                 <div className={style.project_info} >
                                     <p>
                                         <span>Categoria: </span> {project.category.name}
@@ -129,7 +150,16 @@ export default function Projected(){
                         </div>
                         <h2>Serviços</h2>
                         <Container custonClass='start'>
-                            <p>Itens de Serviço: </p>
+                            {services.length > 0 && services.map((service) => (
+                                <ServiceCard  
+                                    id={service.id}
+                                    name={service.name}
+                                    cost={service.cost}
+                                    description={service.description}
+                                    key={service.id}
+                                    handleRemove={removeService}
+                                    />
+                            ))} 
                         </Container>   
                     </Container>
                 </div>

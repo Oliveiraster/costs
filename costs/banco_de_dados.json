@@ -7,8 +7,21 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 1500,
+      "services": [
+        {
+          "name": "Tecnico",
+          "cost": "500",
+          "description": "Manutenção",
+          "id": "5d30434b-e877-4a8f-a2f6-862c412f0038"
+        },
+        {
+          "cost": "1000",
+          "name": "Local",
+          "description": "alugar",
+          "id": "1bef9c61-8330-4727-b0d2-a01b9ba407e1"
+        }
+      ],
       "id": 1
     },
     {

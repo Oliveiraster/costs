@@ -55,7 +55,6 @@ export default function Projects() {
         <div className={style.project_container} >
             <div className={style.title_container}>
                 <h1>Meus projetos</h1>
-                
                 <LinkButton to="/newproject" text="Criar Projeto" />
             </div>
               {message && <Message type="success" msg={message} />}
