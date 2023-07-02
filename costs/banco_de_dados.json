@@ -1,72 +1,22 @@
 {
   "projects": [
     {
-      "name": "Teste 1",
-      "budget": "1500",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 1500,
-      "services": [
-        {
-          "name": "Tecnico",
-          "cost": "500",
-          "description": "Manutenção",
-          "id": "5d30434b-e877-4a8f-a2f6-862c412f0038"
-        },
-        {
-          "cost": "1000",
-          "name": "Local",
-          "description": "alugar",
-          "id": "1bef9c61-8330-4727-b0d2-a01b9ba407e1"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "name": "teste 2",
-      "budget": "20000",
+      "name": "Custo do Investimendo para Dev",
+      "budget": "10000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "name": "teste 3",
-      "budget": "30000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "name": "teste 4",
-      "budget": "40000",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "name": "teste 5",
-      "budget": "50000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
+      "cost": 5000,
+      "services": [
+        {
+          "name": "Faculdade",
+          "cost": "5000",
+          "description": "Custo total",
+          "id": "d430f6ce-8285-4e18-a688-2a3db76ad5c6"
+        }
+      ],
+      "id": 1
     }
   ],
   "categories": [
