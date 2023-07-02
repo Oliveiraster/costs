@@ -1,21 +1,14 @@
 {
   "projects": [
     {
-      "name": "Custo do Investimendo para Dev",
-      "budget": "10000",
+      "name": "Exemplo",
+      "budget": "5000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 5000,
-      "services": [
-        {
-          "name": "Faculdade",
-          "cost": "5000",
-          "description": "Custo total",
-          "id": "d430f6ce-8285-4e18-a688-2a3db76ad5c6"
-        }
-      ],
+      "cost": 0,
+      "services": [],
       "id": 1
     }
   ],

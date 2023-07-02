@@ -187,6 +187,7 @@ export default function Projected(){
                                     handleRemove={removeService}
                                     />
                             ))} 
+                            {services.length == 0 && <p>Não há serviços cadastrados!</p>}
                         </Container>   
                     </Container>
                 </div>
