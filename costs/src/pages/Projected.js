@@ -1,4 +1,4 @@
-import {parse, v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4} from 'uuid'
 
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -108,7 +108,7 @@ export default function Projected(){
 
     function removeService(id, cost){
         const servicesUpdated = project.services.filter(
-            (service) => service.id != id
+            (service) => service.id !== id
         )
 
         const projectUpdated = project
@@ -187,7 +187,7 @@ export default function Projected(){
                                     handleRemove={removeService}
                                     />
                             ))} 
-                            {services.length == 0 && <p>Não há serviços cadastrados!</p>}
+                            {services.length === 0 && <p>Não há serviços cadastrados!</p>}
                         </Container>   
                     </Container>
                 </div>
